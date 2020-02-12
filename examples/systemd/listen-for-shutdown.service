@@ -4,9 +4,22 @@ Description=Listen for poweroff button
 [Service]
 Type=simple
 Restart=always
-Environment=ENV_GPIO=26
-#Environment=ENV_GPIO=26 ENV_STATE=RISING
-#EnvironmentFile=/etc/default/listen-for-shutdown
+
+# To define the state to listen for and the pin to listen on
+# Use the "Environment" or "EnvironmentFile" options
+# If no environment information provided,
+# Hard-coded defaults will be used
+#
+# Only one of the following Environment lines should be used
+#Environment=ENV_GPIO=26  #Set GPIO pin
+#Environment=ENV_STATE=RISING #Set direction
+#Environment=ENV_GPIO=26 ENV_STATE=RISING #set both
+#
+# Or, instead of the Environment command,
+# use a file instead
+EnvironmentFile=/etc/default/listen-for-shutdown
+
+
 ExecStart=/usr/local/bin/listen-for-shutdown.py
 
 [Install]
