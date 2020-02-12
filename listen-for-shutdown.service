@@ -1,0 +1,13 @@
+[Unit]
+Description=Listen for poweroff button
+
+[Service]
+Type=simple
+Restart=always
+Environment=ENV_GPIO=26
+#Environment=ENV_GPIO=26 ENV_STATE=RISING
+#EnvironmentFile=/etc/default/listen-for-shutdown
+ExecStart=/usr/local/bin/listen-for-shutdown.py
+
+[Install]
+WantedBy=multi-user.target
