@@ -16,7 +16,7 @@ elif "ENV_GPIO" in os.environ:
 
 if len(sys.argv) > 2:
     direction=sys.argv[2]
-elif "ENV_DIRECTION" in os.environ:
+elif "ENV_STATE" in os.environ:
     direction=os.getenv("ENV_DIRECTION")
 
 print ("Waiting for {} on GPIO pin {}".format(direction,str(pin)))
@@ -29,6 +29,8 @@ if direction=="RISING":
 else:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.wait_for_edge(pin, GPIO.FALLING)
+
+print ("GPIO state detected. Shuting down")
 
 subprocess.call(['shutdown', '-p', 'now'], shell=False)
 
