@@ -9,6 +9,6 @@ desired, in two different ways:
 comments in the file.
 
 2. The `EnvironmentFile` option specifies a file from which to read
-environment variables.  See examples/default/listen-for-shutdown.
+environment variables.  See `examples/default/listen-for-shutdown`.
 
 See the top-level README.md for more information.

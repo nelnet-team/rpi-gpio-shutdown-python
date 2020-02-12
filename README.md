@@ -29,9 +29,9 @@ state is specified, then the values will either be the hard-coded
 defaults or those values that are defined as below.  The command line
 args take precedence over the methods 2 or 3.
 
-2. *Environment Variables*. See `examples/systemd/listen-for-shutdown.service`
+2. *Environment Variables*. See `examples/systemd/
 
-3. *Environment File*. See `examples/default/listen-for-shutdown`
+3. *Environment File*. See `examples/default/
 
 ## Requirements:
 
@@ -40,7 +40,7 @@ args take precedence over the methods 2 or 3.
 
 ## Installation
 
-Place listen-for-shutdown.py somewhere from where
+Place `listen-for-shutdown.py` somewhere from where
 systemd can run it, such as `/usr/local/bin`.
 
 Modify `examples/systemd/listen-for-shutdown.service` and place it in `/etc/systemd/system`
@@ -54,4 +54,5 @@ for your OS.  In Raspbian this is `/etc/default/`.
     sudo systemctl status listen-for-shutdown.service
 
 If the service failed, use `journalctl` to investigate:
+
     sudo journalctl -xe -u listen-for-shutdown.service
