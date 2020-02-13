@@ -3,7 +3,8 @@ Description=Listen for poweroff button
 
 [Service]
 Type=simple
-Restart=always
+Restart=on-failure
+RestartSec=5
 
 # To define the state to listen for and the pin to listen on
 # Use the "Environment" or "EnvironmentFile" options
